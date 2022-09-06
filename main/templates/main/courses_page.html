@@ -1,0 +1,82 @@
+{% extends 'main/layout.html' %}
+{% load my_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Учебные курсы' %}
+{% endblock %}
+
+{% block content %}
+   <div class="main">
+        <div class="main_content">
+                <h1>{% trans 'Учебные курсы' %}</h1>
+                {% for element in data %}
+                     <h2>{{ element.block_title }}</h2>
+                        {%for row in element.block_text|split %}
+                            <p>{{ row }}</p>
+                        {% endfor %}
+                        <br>
+                        <div class="div_courses">
+                            <div class="tabs">
+                                {% for row in video %}
+                                    <div class="tab">
+                                    {% if element.pk == row.CourseBlock_id %}
+                                        <input type="checkbox" id="chck{{ row.pk }}">
+                                        <label class="tab-label" for="chck{{ row.pk }}">{{ row.video_name }}</label>
+                                        <div class="tab-content">
+                                          <iframe id="frame" class="frame" name="frame" src="{{row.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                     <br> <br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    <script>
+        let iframeName1 = document.getElementsByClassName('frame');
+            Array.from(iframeName1).forEach((iframeName) => {
+            if (window.matchMedia("(min-width: 3100px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "1100px";
+            } else if (window.matchMedia("(min-width: 2700px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "1000px";
+            } else if (window.matchMedia("(min-width: 2500px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "900px";
+            } else if (window.matchMedia("(min-width: 2200px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "800px";
+            } else if (window.matchMedia("(min-width: 1800px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "700px";
+            } else if (window.matchMedia("(min-width: 1500px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "600px";
+            } else if (window.matchMedia("(min-width: 1220px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "500px";
+            } else if (window.matchMedia("(min-width: 780px)").matches) {
+                iframeName.style.width = "100%";
+                iframeName.style.height = "400px";
+            } else if (window.matchMedia("(min-width: 606px)").matches)  {
+               iframeName.style.width = "100%";
+               iframeName.style.height = "300px";
+            } else if (window.matchMedia("(min-width: 500px)").matches) {
+               iframeName.style.width = "100%";
+               iframeName.style.height = "250px";
+            } else if (window.matchMedia("(min-width: 410px)").matches) {
+               iframeName.style.width = "100%";
+               iframeName.style.height = "200px";
+            } else if (window.matchMedia("(min-width: 300px)").matches) {
+               iframeName.style.width = "100%";
+               iframeName.style.height = "150px";
+            }
+            });
+
+    </script>
+
+{% endblock %}

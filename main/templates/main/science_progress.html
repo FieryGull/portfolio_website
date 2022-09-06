@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+{% load my_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Достижения' %}
+{% endblock %}
+
+{% block content %}
+   <div class="main">
+       <div class="main_content">
+        <h1>{% trans 'Достижения' %}</h1>
+            {% for row in data %}
+                <h2>{{ row.block_title }}</h2>
+                <ul class="ul_content">
+                {%for row in row.block_text|split %}
+                    <li><p>{{ row }}</p></li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+       </div>
+    </div>
+{% endblock %}

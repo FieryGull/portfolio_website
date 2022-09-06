@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-27 15:55+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\contact_form\templates\contact_form\contact_form.html:7
+#: .\contact_form\templates\contact_form\contact_form.html:11
+#: .\main\templates\main\layout.html:44 .\main\templates\main\layout.html:85
+msgid "Обратная связь"
+msgstr "Contact us"
+
+#: .\contact_form\templates\contact_form\contact_form.html:22
+msgid "Отправить"
+msgstr "Send"
+
+#: .\contact_form\templates\contact_form\success_page.html:7
+msgid "Успешная отправка сообщения"
+msgstr "Successful message sending"
+
+#: .\contact_form\templates\contact_form\success_page.html:11
+msgid "Сообщение"
+msgstr "Message"
+
+#: .\contact_form\templates\contact_form\success_page.html:11
+msgid "успешно"
+msgstr "successfully"
+
+#: .\contact_form\templates\contact_form\success_page.html:11
+#, fuzzy
+#| msgid "Отправить"
+msgid "отправлено"
+msgstr "sent"
+
+#: .\contact_form\templates\contact_form\success_page.html:12
+msgid "Вернуться на главную страницу"
+msgstr "Return to the homepage"
+
+#: .\main\templates\main\biography.html:6
+#: .\main\templates\main\biography.html:12
+msgid "Биография"
+msgstr "Biography"
+
+#: .\main\templates\main\conferences.html:6
+#: .\main\templates\main\conferences.html:12
+#: .\main\templates\main\layout.html:41 .\main\templates\main\layout.html:82
+msgid "Конференции"
+msgstr "Conferences"
+
+#: .\main\templates\main\courses_page.html:6
+#: .\main\templates\main\courses_page.html:12
+#: .\main\templates\main\layout.html:43 .\main\templates\main\layout.html:84
+msgid "Учебные курсы"
+msgstr "Education courses"
+
+#: .\main\templates\main\layout.html:38 .\main\templates\main\layout.html:79
+msgid "Биографическая справка"
+msgstr "Biography"
+
+#: .\main\templates\main\layout.html:39 .\main\templates\main\layout.html:80
+#: .\main\templates\main\publications.html:7
+#: .\main\templates\main\publications.html:13
+msgid "Публикации"
+msgstr "Publications"
+
+#: .\main\templates\main\layout.html:40 .\main\templates\main\layout.html:81
+#: .\main\templates\main\projects.html:6 .\main\templates\main\projects.html:12
+msgid "Проекты"
+msgstr "Projects"
+
+#: .\main\templates\main\layout.html:42 .\main\templates\main\layout.html:83
+#: .\main\templates\main\science_progress.html:6
+#: .\main\templates\main\science_progress.html:12
+msgid "Достижения"
+msgstr "Achievements"
+
+#: .\main\templates\main\layout.html:78
+msgid "Главная"
+msgstr "Home"
+
+msgid "Имя"
+msgstr "First name"
+
+msgid "Фамилия"
+msgstr "Last Name"
+
+msgid "Почта"
+msgstr "Email"
+
+
+msgid "Напишите тут ваше сообщение"
+msgstr "Write your message here"
+
+#~ msgid "Закрыть все"
+#~ msgstr "Close others"
+
+#~ msgid "Андрей Аверин"
+#~ msgstr "Andrey Averin"
+
+#~ msgid "Сообщение успешно отправлено"
+#~ msgstr "Message sent successfully"
+
+#~ msgid "Изменить"
+#~ msgstr "Change"

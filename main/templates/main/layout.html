@@ -1,0 +1,153 @@
+{% load static %}
+{% load i18n %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'main/img/favicon.png' %}" type="image/x-icon">
+    <title> {% block title %}    {% endblock %} </title>
+{#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/publications.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fullscreenmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/contact_form.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/success_page.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/courses.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/conferences.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/preloader.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/fonts/font.lato.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/fonts/font.v2.css' %}">
+
+</head>
+<body>
+    <div class="fon">
+        <div id="bg"></div>
+    </div>
+    {% for el in datanav %}
+    <aside>
+        <div class="logo">
+            <img class="logo_img" src="{% if el.link_logo_image %} {{ el.link_logo_image }} {% else %} {% static 'main/img/logo.jpg'  %} {% endif %}">
+            <a href="{% url 'home' %}" class="logo_text">{{ el.logo_text }}</a>
+        </div>
+        <ul class="menu">
+            <li><a href="{% url 'biography' %}" class="sidebar_menu-item"><span>{% trans 'Биографическая справка' %}</span></a></li>
+            <li><a href="{% url 'publications' %}" class="sidebar_menu-item"><span>{% trans 'Публикации' %}</span></a></li>
+            <li><a href="{% url 'projects' %}" class="sidebar_menu-item"><span>{% trans 'Проекты' %}</span></a></li>
+            <li><a href="{% url 'conferences' %}" class="sidebar_menu-item"><span>{% trans 'Конференции' %}</span></a></li>
+            <li><a href="{% url 'science_progress' %}" class="sidebar_menu-item"><span>{% trans 'Достижения' %}</span></a></li>
+            <li> <a href="{% url 'courses' %}" class="sidebar_menu-item"><span>{% trans 'Учебные курсы' %}</span></a></li>
+            <li> <a href="{% url 'contact_page' %}" class="sidebar_menu-item"><span>{% trans 'Обратная связь' %}</span></a></li>
+        </ul>
+        <div class="footer_left">
+            <div class="img_source">
+               <a href="{{ el.link_inst }}"><img src="{% static 'main/img/inst2.svg' %}" class="" alt="instagram"></a>
+                <a href="{{ el.link_yt }}"><img src="{% static 'main/img/Youtube.svg' %}" class="" alt="youtube"></a>
+                <a href="{{ el.link_vk }}"><img src="{% static 'main/img/vk.svg' %}" class="" alt="Vkontakte"></a>
+                <a href="{{ el.link_fb }}"><img src="{% static 'main/img/facebook.svg' %}" class="" alt="Facebook"></a>
+            </div>
+            <div class="contacts_left">
+                <a href="mailto:info@{{ el.email }}" class="sidebar_menu-item"><span>{{ el.email }}</span></a>
+            </div>
+            <div class="div_language">
+                 <form  action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                     {% get_current_language as LANGUAGE_CODE %}
+                     {% if LANGUAGE_CODE == "en" %}
+                         <input name="next" type="hidden" value="{{ redirect_to }}" />
+                         <input name="language" type="hidden" value="ru" />
+                         <input type="submit" value="Change to RU" />
+                     {% else %}
+                         <input name="next" type="hidden" value="{{ redirect_to }}" />
+                         <input name="language" type="hidden" value="en" />
+                         <input type="submit" value="Изменить на EN" />
+                     {% endif %}
+                </form>
+            </div>
+        </div>
+    </aside>
+    <nav class="fullscrennnav">
+        <div class="">
+            <input id="responsive-menu" type="checkbox">
+            <label for="responsive-menu">{{ el.logo_text }}<span id="menu-icon"></span></label>
+            <div class="headermenu">
+                <ul class="menu-ul">
+                    <li><a href="{% url 'home' %}" class="sidebar_menu-item"><span>{% trans 'Главная' %}</span></a></li>
+                    <li><a href="{% url 'biography' %}" class="sidebar_menu-item"><span>{% trans 'Биографическая справка' %}</span></a></li>
+                    <li><a href="{% url 'publications' %}" class="sidebar_menu-item"><span>{% trans 'Публикации' %}</span></a></li>
+                    <li><a href="{% url 'projects' %}" class="sidebar_menu-item"><span>{% trans 'Проекты' %}</span></a></li>
+                    <li><a href="{% url 'conferences' %}" class="sidebar_menu-item"><span>{% trans 'Конференции' %}</span></a></li>
+                    <li><a href="{% url 'science_progress' %}" class="sidebar_menu-item"><span>{% trans 'Достижения' %}</span></a></li>
+                    <li> <a href="{% url 'courses' %}" class="sidebar_menu-item"><span>{% trans 'Учебные курсы' %}</span></a></li>
+                    <li> <a href="{% url 'contact_page' %}" class="sidebar_menu-item"><span>{% trans 'Обратная связь' %}</span></a></li>
+                </ul>
+                <div class="social-div">
+                    <ul class="social-media">
+                        <li>
+                            <a href="{{ el.link_inst }}"><img src="{% static 'main/img/inst2.svg' %}" class="" alt="instagram"></a>
+                        </li>
+                        <li>
+                            <a href="{{ el.link_yt }}"><img src="{% static 'main/img/Youtube.svg' %}" class="" alt="youtube"></a>
+                        </li>
+                        <li>
+                            <a href="{{ el.link_vk }}"><img src="{% static 'main/img/vk.svg' %}" class="" alt="Vkontakte"></a>
+                        </li>
+                        <li>
+                            <a href="{{ el.link_fb }}"><img src="{% static 'main/img/facebook.svg' %}" class="" alt="Facebook"></a>
+                        </li>
+                    </ul>
+                    <ul class="contacts_left">
+                        <li><a href="mailto:info@{{ el.email }}" class="sidebar_menu-item"><span>{{ el.email }}</span></a></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="div_language">
+                                 <form  action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                     {% get_current_language as LANGUAGE_CODE %}
+                                     {% if LANGUAGE_CODE == "en" %}
+                                         <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                         <input name="language" type="hidden" value="ru" />
+                                         <input type="submit" value="Change to RU" />
+                                     {% else %}
+                                         <input name="next" type="hidden" value="{{ redirect_to }}" />
+                                         <input name="language" type="hidden" value="en" />
+                                         <input type="submit" value="Изменить на EN" />
+                                     {% endif %}
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </nav>
+    <main>
+        <div id="preloaderbody" class="preloader-body">
+
+<svg class="tea" id="tea" width="67" height="78" viewbox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M27.0819 17H3.02508C1.91076 17 1.01376 17.9059 1.0485 19.0197C1.15761 22.5177 1.49703 29.7374 2.5 34C4.07125 40.6778 7.18553 44.8868 8.44856 46.3845C8.79051 46.79 9.29799 47 9.82843 47H20.0218C20.639 47 21.2193 46.7159 21.5659 46.2052C22.6765 44.5687 25.2312 40.4282 27.5 34C28.9757 29.8188 29.084 22.4043 29.0441 18.9156C29.0319 17.8436 28.1539 17 27.0819 17Z" stroke="var(--secondary)" stroke-width="2"></path>
+  <path d="M29 23.5C29 23.5 34.5 20.5 35.5 25.4999C36.0986 28.4926 34.2033 31.5383 32 32.8713C29.4555 34.4108 28 34 28 34" stroke="var(--secondary)" stroke-width="2"></path>
+  <path id="teabag" fill="var(--secondary)" fill-rule="evenodd" clip-rule="evenodd" d="M16 25V17H14V25H12C10.3431 25 9 26.3431 9 28V34C9 35.6569 10.3431 37 12 37H18C19.6569 37 21 35.6569 21 34V28C21 26.3431 19.6569 25 18 25H16ZM11 28C11 27.4477 11.4477 27 12 27H18C18.5523 27 19 27.4477 19 28V34C19 34.5523 18.5523 35 18 35H12C11.4477 35 11 34.5523 11 34V28Z"></path>
+  <path id="steamL" d="M17 1C17 1 17 4.5 14 6.5C11 8.5 11 12 11 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="var(--secondary)"></path>
+  <path id="steamR" d="M21 6C21 6 21 8.22727 19 9.5C17 10.7727 17 13 17 13" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+        </div>
+        {% endfor %}
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+        <script>
+            window.setTimeout(function () {
+                document.getElementById('preloaderbody').style.display = 'none';
+            }, 2000)
+        </script>
+        <script src="{% static 'main/js/index.js' %}"></script>
+
+</body>
+</html>

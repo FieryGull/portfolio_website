@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% load my_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Конференции' %}
+{% endblock %}
+
+{% block content %}
+   <div class="main">
+        <div class="main_content">
+            <h1>{% trans 'Конференции' %}</h1>
+            {% for row in data %}
+                <article class="postcard {% cycle 'blue' 'red' 'green' 'yellow' %}">
+                    <img class="postcard__img" src="{{ row.link_image }}" alt="Image Title" />
+                    <div class="postcard__text">
+                        <h2 class="postcard__title blue">{{ row.block_title }}</h2>
+                        <div class="postcard__bar"></div>
+                        <div class="postcard__preview-txt">
+                            {%for row in row.block_text|split %}
+                                <p>{{ row }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

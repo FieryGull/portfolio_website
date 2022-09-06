@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  {% trans 'Обратная связь' %}
+{% endblock %}
+{% block content %}
+    <div class="div_contact">
+        <h1>{% trans 'Обратная связь' %}</h1>
+        <form method="POST" class="form_contact">
+            {% csrf_token %}
+            {{ form }}
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+            <div data-size="normal" class="form-group g-recaptcha" data-sitekey={{GOOGLE_RECAPTCHA_KEY}}></div>
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+            <input type="submit" value="{% trans 'Отправить' %}">
+        </form>
+    </div>
+{% endblock %}

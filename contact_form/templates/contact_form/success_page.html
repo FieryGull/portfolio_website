@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  {% trans 'Успешная отправка сообщения' %}
+{% endblock %}
+{% block content %}
+    <div class="div_success">
+        <div class="message"><h1>{% trans 'Сообщение' %}</h1><h1>{% trans 'успешно' %}</h1><h1>{% trans 'отправлено' %}</h1></div>
+        <p><a href="{% url 'home' %}" class="sidebar_menu-item"><span>{% trans 'Вернуться на главную страницу' %}</span></a></p>
+    </div>
+{% endblock %}

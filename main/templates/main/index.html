@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load my_tags %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% block title %}
+    {% for el in datanav %}
+          {{el.logo_text}}
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+        <div class="main_content">
+            {% for el in data %}
+                <h3>{{ el.block_title }}</h3>
+                {% for row in el.block_text|split %}
+                    <p>{{ row }}</p>
+                {% endfor %}
+                <br>
+            {% endfor %}
+        </div>
+        <div class="footer_right">
+            {% for row in links %}
+				<a href="{{ row.link_rg }}"><img src="{% static 'main/img/researchgate.svg' %}" class="social_right" alt="Researchgate"></a>
+                <a href="{{ row.link_orcid }}"><img src="{% static 'main/img/ORCID.svg' %}" class="social_right" alt="ORCID"></a>
+				<a href="{{ row.link_gs }}"><img src="{% static 'main/img/GoogleScholar.svg' %}" class="social_right" alt="GoogleScholar"></a>
+                <a href="{{ row.link_scopus }}"><img src="{% static 'main/img/Scopus.svg' %}" class="social_right" alt="Scopus"></a>
+				<a href="{{ row.link_publons }}"><img src="{% static 'main/img/publons.svg' %}" class="social_right" alt="Publons"></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,221 @@
+aside {
+    float: left;
+    background: white;
+    width: 30%;
+    height: 100%;
+    color: #fff;
+    border-right: 5px solid #525252;
+    display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	position: fixed;
+    padding: 40px 3% 20px;
+
+}
+    aside .menu-icon {
+        display: none;
+    }
+
+    aside .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+
+
+    aside .logo img {
+        float: right;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    aside .logo a {
+        font-size: 2rem;
+        color: #060606;
+        /*margin-bottom: 5%;*/
+        text-decoration: none;
+    }
+
+    aside ul {
+        list-style: none;
+
+    }
+    aside ul li a {
+        color: black;
+        display: block;
+        margin-bottom: 5%;
+        text-align: right;
+    }
+
+    
+    aside .footer_left {
+    }
+
+    aside .footer_left .img_source {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 5%;
+    }
+
+    aside .footer_left .img_source a {
+        max-width: 50px;
+        max-height: 50px;
+        display: flex;
+        margin-left: 5%;
+    }
+
+    aside .footer_left .img_source img {
+        width: 100%;
+    }
+
+    aside .footer_left .contacts_left a {
+        float: right;
+    }
+
+    .div_language form {
+        float: right;
+        margin: 5% 0 0;
+        font-size: 1rem;
+    }
+    .div_language form input[type="submit"] {
+            display: inline-block;
+      background-color: #060606;
+      color: #fff;
+      cursor: pointer;
+        border-color: #060606;
+        margin-bottom: 0;
+        border-radius: 8px;
+    }
+    .div_language form select {
+        border: 2px solid #060606;
+    }
+
+    .sidebar_menu-item {
+        font-size: 1rem;
+        display: block;
+        color: #060606;
+        transition: color 0.9s ease;
+        text-decoration: none;
+        line-height: 1.5;
+    }
+    .sidebar_menu-item:hover {
+      color: #000000;
+    }
+    .sidebar_menu-item.-active {
+      color: #000000;
+    }
+    .sidebar_menu-item span {
+      position: relative;
+      display: inline-block;
+    }
+    .sidebar_menu-item span:after {
+      content: '';
+      height: 0.05rem;
+      width: 100%;
+      position: absolute;
+      bottom: 5%;
+      left: 0;
+      background: #000000;
+      transition: width 0.9s ease;
+    }
+    .sidebar_menu-item span:hover:after,
+    .sidebar_menu-item.-active span:after {
+      width: 0;
+    }
+
+
+    @media (max-height: 649px), (max-width: 1000px)  {
+        aside {
+            display: none;
+        }
+        .fullscrennnav {
+            display: block;
+        }
+        main {
+            width: 100%;
+            padding: 80px 3% 0;
+        }
+
+    }
+
+
+    @media (max-height: 843px) and (min-width: 1800px) and (max-width: 2400px)   {
+        aside {
+            display: none;
+        }
+        .fullscrennnav {
+            display: block;
+        }
+        main {
+            width: 100%;
+            padding: 80px 3% 0;
+        }
+    }
+    @media (max-height: 1060px) and (min-width: 2400px)  {
+        aside {
+            display: none;
+        }
+        .fullscrennnav {
+            display: block;
+        }
+        main {
+            width: 100%;
+            padding: 80px 3% 0;
+        }
+    }
+
+
+    @media (min-width: 1800px)   {
+        .sidebar_menu-item {
+            font-size: 1.4rem;
+        }
+        .div_language form input[type="submit"] {
+            font-size: 1.4rem;
+        }
+        .div_language form select  {
+            font-size: 1.4rem;
+        }
+         aside .logo a {
+            font-size: 2.8rem;
+        }
+        aside .footer_left .img_source a {
+            max-width: 75px;
+            max-height: 75px;
+        }
+         aside .logo img {
+            width: 230px;
+            height: 230px;
+        }
+    }
+
+    @media (min-width: 2400px)  {
+        .sidebar_menu-item {
+            font-size: 1.8rem;
+        }
+        /*aside ul li a {*/
+        /*    margin-bottom: 7.5%;*/
+        /*}*/
+        .div_language form input[type="submit"]  {
+            font-size: 1.8rem;
+        }
+        .div_language form select  {
+            font-size: 1.8rem;
+        }
+         aside .logo a {
+            font-size: 3.6rem;
+        }
+        aside .footer_left .img_source a {
+            max-width: 100px;
+            max-height: 100px;
+        }
+        aside .logo img {
+            width: 280px;
+            height: 280px;
+        }
+    }

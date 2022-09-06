@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  {% trans 'Публикации' %}
+{% endblock %}
+
+{% block content %}
+    <div class="main">
+       <div class="main_content">
+                <h1> {% trans 'Публикации' %}</h1>
+                <div class="publication_tabs">
+                    {% for row in data %}
+                          <div class="publication_tab ">
+                            <input type="checkbox" id="chck{{ row.pk }}" >
+                            <label class="publication_tab-label postcard {% cycle 'blue' 'red' 'green' 'yellow' 'pink' %}" for="chck{{ row.pk }}"><h2>{{ row.block_title }}</h2></label>
+                            <div class="publication_tab-content ">
+                                <div class="content_publications ">
+                                    <ol class="">
+                                        {% for el in publication %}
+                                        {% if el.PublicationsBlock_id == row.pk %}
+                                            <li><p>{{el.authors_publications}}&nbsp<a href="{{ el.link }}">{{ el.name }}</a>&nbsp{{ el.other_text }}</p></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </div>
+                          </div>
+                    {% endfor %}
+           </div>
+       </div>
+    </div>
+{% endblock %}

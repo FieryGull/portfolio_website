@@ -1,0 +1,213 @@
+
+main .main .main_content .publication_tabs .publication_tab input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+
+/* Accordion styles */
+main .main .main_content .publication_tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  /*box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);*/
+        text-decoration: none;
+            box-shadow: 0 4px 21px -11px rgba(0, 0, 0, 0.66);
+}
+main .main .main_content .publication_tabs .publication_tab .postcard {
+    margin: 0;
+    flex-direction: row;
+    border-radius: 0;
+
+}
+
+main .main .main_content .publication_tabs .publication_tab {
+  width: 100%;
+    margin: 0;
+  overflow: hidden;
+    box-shadow: 0 4px 21px -11px rgba(0, 0, 0, 0.66);
+}
+main .main .main_content .publication_tabs .publication_tab .publication_tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  /*background: #fff;*/
+  font-weight: bold;
+  cursor: pointer;
+    border-radius: 0;
+  /* Icon */
+}
+main .main .main_content .publication_tabs .publication_tab .publication_tab-label:hover {
+  background: #fff;
+    /*border-radius: 8px;*/
+}
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-label::after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.3s;
+}
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-label h2 {
+    margin: 0;
+    padding: 0;
+}
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  /*background: white;*/
+  transition: all 0.3s;
+
+}
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content {
+    /*display: none;*/
+    /*transition: all 0.5s;*/
+}
+
+
+main  .main .main_content .publication_tabs .publication_tab input:checked + .publication_tab-label {
+  background: #fff;
+    /*border-radius: 8px;*/
+}
+main  .main .main_content .publication_tabs .publication_tab input:checked + .publication_tab-label::after {
+  transform: rotate(90deg);
+}
+main  .main .main_content .publication_tabs .publication_tab input:checked ~ .publication_tab-content {
+    max-height: 4000px;
+    padding: 1em;
+}
+/*main  .main .main_content .publication_tabs .publication_tab input:checked ~ .publication_tab-content {*/
+/*    display: block;*/
+/*}*/
+
+
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*font-size: 20px;*/
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications h1 {
+    margin: 0;
+    /*font-size: 40px;*/
+
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications ol {
+  counter-reset: section;
+    max-width: 90%;
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications li {
+  list-style-type: none;
+  position: relative;
+  /*font-size: 1.5rem;*/
+  padding: 15px;
+}
+
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications p {
+  /*font-size: 15px;*/
+    line-height: 1.5;
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  li::before {
+    counter-increment: section;
+    content: counter(section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #060606;
+    border-radius: 50%;
+    position: absolute;
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #060606;
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications a:link {
+  color: #0076bd;
+}
+
+main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications a:visited {
+  color: #4394ad;
+}
+
+@media (min-width: 1800px)   {
+       main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  li::before {
+           left: -65px;
+           font-size: 45px;
+           width: 60px;
+           height: 60px;
+    }
+}
+@media (min-width: 2400px)   {
+    main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  li::before {
+        left: -80px;
+        font-size: 60px;
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (max-width: 460px)   {
+    main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  ol {
+            padding-inline-start: 0;
+    }
+       main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  li::before {
+           left: 38%;
+           top: 40px;
+           font-size: 45px;
+           width: 60px;
+           height: 60px;
+    }
+    main  .main .main_content .publication_tabs .publication_tab .publication_tab-content .content_publications  li {
+        padding: 80px 0 0;
+    }
+}
+
+
+main .main .main_content .publication_tabs .green:nth-child(2n)::before {
+  /*background-image: linear-gradient(150deg, rgba(32, 32, 32, 0.8), transparent 100%);*/
+    background: none;
+}
+
+main .main .main_content .publication_tabs .blue:nth-child(2n)::before {
+  /*background-image: linear-gradient(150deg, rgba(32, 32, 32, 0.8), transparent 100%);*/
+    background: none;
+}
+
+main .main .main_content .publication_tabs .red:nth-child(2n)::before {
+  /*background-image: linear-gradient(150deg, rgba(32, 32, 32, 0.8), transparent 100%);*/
+    background: none;
+}
+
+main .main .main_content .publication_tabs .yellow:nth-child(2n)::before {
+  /*background-image: linear-gradient(150deg, rgba(32, 32, 32, 0.8), transparent 100%);*/
+    background: none;
+}
+
+main .main .main_content .publication_tabs .pink:nth-child(2n)::before {
+  /*background-image: linear-gradient(30deg, rgba(32, 32, 32, 0.8), transparent 100%);*/
+    background: none;
+}
+
+
+
+
+
+
+
